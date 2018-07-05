@@ -16,3 +16,7 @@ cp -R "${BUILD_DIR}/${CONFIGURATION}-iphoneos/$1.framework" "${UNIVERSAL_OUTPUT_
 # Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory
 lipo -create -output "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/$1" "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/$1" "${BUILD_DIR}/${CONFIGURATION}-iphoneos/$1.framework/$1"
 
+# Step 3b. Copy the simultor swiftdoc and swiftmodules in to the framework structure
+echo "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
+cp "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/Modules/$1.swiftmodule/i386."* "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
+cp "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/Modules/$1.swiftmodule/x86_64."* "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
