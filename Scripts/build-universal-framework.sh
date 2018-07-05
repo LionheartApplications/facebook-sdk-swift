@@ -18,5 +18,5 @@ lipo -create -output "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/$1" "${BUILD_DIR}/
 
 # Step 3b. Copy the simultor swiftdoc and swiftmodules in to the framework structure
 echo "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
-cp "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/Modules/$1.swiftmodule/i386."* "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
-cp "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/Modules/$1.swiftmodule/x86_64."* "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
+cp "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/Modules/$1.swiftmodule/i386."* "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/" 2>/dev/null || :
+cp "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/$1.framework/Modules/$1.swiftmodule/x86_64."* "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/" 2>/dev/null || :
