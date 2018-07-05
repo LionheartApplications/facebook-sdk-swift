@@ -4,4 +4,7 @@
    <FileRef
       location = "group:FacebookSwift.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Scripts">
+   </FileRef>
 </Workspace>
