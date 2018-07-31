@@ -16,7 +16,7 @@ xcodebuild -target "$1" ONLY_ACTIVE_ARCH=NO -configuration $${CONFIGURATION:-Rel
 cp -R "${BUILD_DIR}/${CONFIGURATION:-Release}-iphoneos/$1.framework" "${UNIVERSAL_OUTPUT_FOLDER}/"
 
 # Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory
-lipo -create -output "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/$1" "${BUILD_DIR}/${CONFIGURATION:-Release}-iphonesimulator/$1.framework/$1" "${BUILD_DIR}/${CONFIGURATION:-Release}}-iphoneos/$1.framework/$1"
+lipo -create -output "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/$1" "${BUILD_DIR}/${CONFIGURATION:-Release}-iphonesimulator/$1.framework/$1" "${BUILD_DIR}/${CONFIGURATION:-Release}-iphoneos/$1.framework/$1"
 
 # Step 3b. Copy the simultor swiftdoc and swiftmodules in to the framework structure
 echo "${UNIVERSAL_OUTPUT_FOLDER}/$1.framework/Modules/$1.swiftmodule/"
